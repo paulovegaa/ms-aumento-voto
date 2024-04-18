@@ -10,7 +10,7 @@ jobs:
       - name: Setup Java JDK
         uses: actions/setup-java@main
         with:
-          java-verion: '8'
+          java-version: '8'
           distribution: 'temurin'
       - name: Compilacion
         run: |
