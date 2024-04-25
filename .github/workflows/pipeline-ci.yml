@@ -15,3 +15,11 @@ jobs:
       - name: Compilacion
         run: |
           mvn package
+      - name: Analisis SonarCloud
+        run: |
+          mvn clean verify org.sonarsource.scanner.maven:sonar-maven-plugin.3.11.0.3922:sonar \
+          -Dsonar.token=${{ secrets.SONAR_TOKEN }} \
+          -Dsonar.host.url=https://sonarcloud.io \
+          -Dsonar.organization=paulovegaa \
+          -Dsonar.projectKey=paulovegaa_ms-aumento-voto \
+          
