@@ -10,16 +10,17 @@ jobs:
       - name: Setup Java JDK
         uses: actions/setup-java@main
         with:
-          java-version: '8'
+          java-version: '17'
           distribution: 'temurin'
       - name: Compilacion
         run: |
-          mvn package
+          #mvn package
+          echo 'package'
       - name: Analisis SonarCloud
         run: |
-          mvn clean verify org.sonarsource.scanner.maven:sonar-maven-plugin.3.11.0.3922:sonar \
+          mvn clean verify org.sonarsource.scanner.maven:sonar-maven-plugin:3.11.0.3922:sonar \
           -Dsonar.token=${{ secrets.SONAR_TOKEN }} \
           -Dsonar.host.url=https://sonarcloud.io \
           -Dsonar.organization=paulovegaa \
-          -Dsonar.projectKey=paulovegaa_ms-aumento-voto \
+          -Dsonar.projectKey=paulovegaa_ms-aumento-voto
           
